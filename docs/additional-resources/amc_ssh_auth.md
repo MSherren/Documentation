@@ -61,7 +61,7 @@ ssh-keygen -t ed25519
 - 
 - Using PuTTY: <https://devops.ionos.com/tutorials/use-ssh-keys-with-putty-on-windows/>
 
-#### SSH Key Generation for Mac Users: 
+#### SSH Key Generation for Mac and Linux Users: 
 - From a terminal window, execute the following command:
 ```
 ssh-keygen -t ed25519
