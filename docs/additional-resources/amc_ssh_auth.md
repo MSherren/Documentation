@@ -48,7 +48,7 @@ You can move on to [Step 2](#step-2-generate-an-ssh-key), but please make sure 1
 
 You are strongly encouraged to set a passphrase for your key pair. You will be prompted to enter the passphrase each time you log in. You are also strongly encouraged to create an ed25519 key type.
 
-#### SSH Key Generation for Windows Users: 
+### SSH Key Generation for Windows Users: 
 - It is recommended you use Powershell, but command prompt or a basic windows terminal will also work:
 Once inside Powershell (or similar), execute the following command:
 ```
@@ -61,7 +61,7 @@ ssh-keygen -t ed25519
 - 
 - Using PuTTY: <https://devops.ionos.com/tutorials/use-ssh-keys-with-putty-on-windows/>
 
-#### SSH Key Generation for Mac and Linux Users: 
+### SSH Key Generation for Mac and Linux Users: 
 - From a terminal window, execute the following command:
 ```
 ssh-keygen -t ed25519
