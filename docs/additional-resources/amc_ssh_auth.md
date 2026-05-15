@@ -46,15 +46,31 @@ You can move on to [Step 2](#step-2-generate-an-ssh-key), but please make sure 1
 ```
 ## *Step 2: Generate an ssh key*
 
-You are strongly encouraged to set a passphrase for your key pair. You will be prompted to enter the passphrase each time you log in. 
+You are strongly encouraged to set a passphrase for your key pair. You will be prompted to enter the passphrase each time you log in. You are also strongly encouraged to create an ed25519 key type.
 
-SSH Key Generation for Windows Users: 
-- Using the command prompt, PowerShell, or Windows Terminal: <https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/>
+#### SSH Key Generation for Windows Users: 
+- It is recommended you use Powershell, but command prompt or a basic windows terminal will also work:
+Once inside Powershell (or similar), execute the following command:
+```
+ssh-keygen -t ed25519
+```
+- After, create a passphrase and note the file path of the generated key. This will be important for step 3. Example output:
+
+![](./amc_ssh_images/windows_ssh_keygen_ex.png)
+<br>
+- 
 - Using PuTTY: <https://devops.ionos.com/tutorials/use-ssh-keys-with-putty-on-windows/>
 
-SSH Key Generation for Mac Users: 
-<https://docs.tritondatacenter.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-mac-os-x>
+#### SSH Key Generation for Mac Users: 
+- From a terminal window, execute the following command:
+```
+ssh-keygen -t ed25519
+```
+- After, create a passphrase and note the file path of the generated key. This will be important for step 3. Example output:
 
+![](./amc_ssh_images/mac_sshkeygen_real.png)
+<br>
+- NOTE for Mac users: There is a chance you need to create or alter your ssh config file (~/.ssh/config). See more in the [Troubleshooting](#troubleshooting) section below.
 
 ## *Step 3: Upload your ssh key to [registry.cilogon.org](https://registry.cilogon.org/registry/)*
 
