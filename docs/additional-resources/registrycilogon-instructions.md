@@ -63,7 +63,7 @@ The key's randomart image is:
 `````{tab-item} Mac
 :sync: os-version-mac
 
-### SSH Key Generation for Mac and Linux Users: 
+SSH Key Generation for Mac and Linux Users: 
 From a terminal window, execute the following command:
 ```
 ssh-keygen -t ed25519
