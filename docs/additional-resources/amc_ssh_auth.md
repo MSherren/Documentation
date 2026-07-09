@@ -98,8 +98,9 @@ The key's ranomart image is:
 ...
 +---- [SHA256] -----+
 ```
-
-- NOTE for Mac users: There is a chance you need to create or alter your ssh config file `~/.ssh/config`. See more in the [Troubleshooting](#troubleshooting) section below.
+```{note}
+Note for Mac users: There is a chance you need to create or alter your ssh config file `~/.ssh/config`. See more in the [Troubleshooting](#troubleshooting) section below.
+``` 
 
 ## *Step 3: Upload your ssh key to [registry.cilogon.org](https://registry.cilogon.org/registry/)*
 
