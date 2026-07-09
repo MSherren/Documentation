@@ -51,7 +51,7 @@ You are strongly encouraged to set a passphrase for your key pair and generate a
 (tabset-ref-get-account)=
 ``````{tab-set}
 :sync-group: tabset-os-version
-`````{tab-item}
+`````{tab-item} Windows
 :sync: os-version-windows
 SSH Key Generation for Windows Users: 
 It is recommended you use Powershell, but command prompt or a basic windows terminal will also work. Once inside Powershell (or similar), execute the following command:
@@ -80,7 +80,7 @@ The key's randomart image is:
 - Using PuTTY: <https://devops.ionos.com/tutorials/use-ssh-keys-with-putty-on-windows/>
 
 `````
-`````{tab-item}
+`````{tab-item} Mac
 :sync: os-version-mac
 SSH Key Generation for Mac and Linux Users:
 From a terminal window, execute the following command:
