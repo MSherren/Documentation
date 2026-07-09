@@ -29,7 +29,11 @@ You can move on to Step 2, but please make sure 10 minutes have elapsed between 
 
 You are strongly encouraged to set a passphrase for your key pair. You will be prompted to enter the passphrase each time you log in. You are also strongly encouraged to create an ed25519 key type.
 
-### SSH Key Generation for Windows Users: 
+(tabset-ref-get-account)=
+``````{tab-set}
+:sync-group: tabset-ssh
+`````{tab-item}
+SSH Key Generation for Windows Users: 
 It is recommended you use Powershell, but command prompt or a basic windows terminal will also work. Once inside Powershell (or similar), execute the following command:
 ```
 ssh-keygen -t ed25519
@@ -54,7 +58,8 @@ The key's randomart image is:
 ```
 
 - Using PuTTY: <https://devops.ionos.com/tutorials/use-ssh-keys-with-putty-on-windows/>
-
+`````
+`````{tab-item}
 ### SSH Key Generation for Mac and Linux Users: 
 From a terminal window, execute the following command:
 ```
@@ -82,6 +87,8 @@ The key's ranomart image is:
 ```{note}
 Note for Mac users: There is a chance you need to create or alter your ssh config file `~/.ssh/config`. See more in the [Troubleshooting](#troubleshooting) section below.
 ```
+`````
+``````
 
 ## *Step 3: Upload your ssh key to registry.cilogon.org*
 
