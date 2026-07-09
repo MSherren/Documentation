@@ -75,7 +75,7 @@ The key's randomart image is:
 - Using PuTTY: <https://devops.ionos.com/tutorials/use-ssh-keys-with-putty-on-windows/>
 
 ### SSH Key Generation for Mac and Linux Users: 
-- From a terminal window, execute the following command:
+From a terminal window, execute the following command:
 ```
 ssh-keygen -t ed25519
 ```
