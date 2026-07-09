@@ -119,7 +119,7 @@ Click "Manage" in the SSHKeyAuthenticator row.
 Select "Add SSH Key".
 ![](./amc_ssh_images/add_sshkey.png)
 
-Click "Choose File". If you store your SSH keys in a hidden directory (e.g. `~/.ssh`), it may be difficult to locate your public key using a Finder/File Explorer window. As a workaround, you can copy your public key to an easily discoverable location using the Terminal App/Windows Command Prompt: <br>`cp ~/.ssh/id_rsa.pub ~/Desktop`
+Click "Choose File". If you store your SSH keys in a hidden directory (e.g. `~/.ssh`), it may be difficult to locate your public key using a Finder/File Explorer window. As a workaround, you can copy your public key to an easily discoverable location using the Terminal App/Windows Command Prompt: <br>`cp ~/.ssh/id_ed25519.pub ~/Desktop`
 <br>
 
 Locate your __public__ key (`<keyname>.pub`) on your local drive, then click "UPLOAD".
@@ -144,9 +144,9 @@ SSH into the CURC CI login node by entering the following in your terminal or te
 ssh -i <privatekey_file> <username>@xsede.org@login.rc.colorado.edu
 ```
 The `-i` flag is used to point to the location of your __private__ key on your local system. The private key must correspond to the public key you uploaded to your RMACC CILogon profile.
-For example, if I uploaded `id_rsa.pub` to my profile, I would log in as such:
+For example, if I uploaded `id_ed25519.pub` to my profile, I would log in as such:
 ```
-ssh -i ~/.ssh/id_rsa lrf20@xsede.org@login.rc.colorado.edu
+ssh -i ~/.ssh/id_ed25519 lrf20@xsede.org@login.rc.colorado.edu
 ```
 
 You will be prompted to enter your passphrase if you set one during key generation.
