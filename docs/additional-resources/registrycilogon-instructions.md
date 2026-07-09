@@ -30,12 +30,11 @@ You can move on to Step 2, but please make sure 10 minutes have elapsed between 
 You are strongly encouraged to set a passphrase for your key pair. You will be prompted to enter the passphrase each time you log in. You are also strongly encouraged to create an ed25519 key type.
 
 ### SSH Key Generation for Windows Users: 
-- It is recommended you use Powershell, but command prompt or a basic windows terminal will also work:
-Once inside Powershell (or similar), execute the following command:
+It is recommended you use Powershell, but command prompt or a basic windows terminal will also work. Once inside Powershell (or similar), execute the following command:
 ```
 ssh-keygen -t ed25519
 ```
-- After, it is important that you **_create a passphrase_** and note the file path of the generated key. This will be important for step 3. Example output:
+After, it is important that you **_create a passphrase_** and note the file path of the generated key. This will be important for step 3. You can also name the key in the `Enter file ...` step to make it unique, instead of remaining the default `id_ed25519`. In the example output provided below, we see that the public key has been saved in the path `C:\Users\username/.ssh/id_ed25519.pub`.
 
 ```
 Z:\> ssh-keygen -t ed25519
@@ -57,11 +56,12 @@ The key's randomart image is:
 - Using PuTTY: <https://devops.ionos.com/tutorials/use-ssh-keys-with-putty-on-windows/>
 
 ### SSH Key Generation for Mac and Linux Users: 
-- From a terminal window, execute the following command:
+From a terminal window, execute the following command:
 ```
 ssh-keygen -t ed25519
 ```
-- After, it is important that you **_create a passphrase_** and note the file path of the generated key. This will be important for step 3. Example output:
+- After, it is important that you **_create a passphrase_** and note the file path of the generated key. This will be important for step 3. You can also name the key in the `Enter file ...` step to make it unique, instead of remaining the default `id_ed25519`. Example output:
+
 
 ```
 username$ ssh-keygen -t ed25519
@@ -79,8 +79,9 @@ The key's ranomart image is:
 ...
 +---- [SHA256] -----+
 ```
-
-- NOTE for Mac users: There is a chance you need to create or alter your ssh config file `~/.ssh/config`. See more in the [Troubleshooting](#troubleshooting) section below.
+```{note}
+Note for Mac users: There is a chance you need to create or alter your ssh config file `~/.ssh/config`. See more in the [Troubleshooting](#troubleshooting) section below.
+```
 
 ## *Step 3: Upload your ssh key to registry.cilogon.org*
 
@@ -99,11 +100,8 @@ Click "Manage" in the SSHKeyAuthenticator row.
 Select "Add SSH Key".
 ![](./registry-images/add_sshkey.png)
 
-Click "Choose File". If you store your SSH keys in a hidden directory (e.g. `~/.ssh`), it may be difficult to locate your public key using a Finder/File Explorer window. As a workaround, you can copy your public key to an easily discoverable location using the Terminal App/Windows Command Prompt:
-
-```
-cp ~/.ssh/id_rsa.pub ~/Desktop
-```
+Click "Choose File". If you store your SSH keys in a hidden directory (e.g. `~/.ssh`), it may be difficult to locate your public key using a Finder/File Explorer window. As a workaround, you can copy your public key to an easily discoverable location using the Terminal App/Windows Command Prompt: <br>`cp ~/.ssh/id_ed25519.pub ~/Desktop`
+<br>
 
 Locate your __public__ key (`<keyname>.pub`) on your local drive, then click "UPLOAD".
 ![](./registry-images/upload_sshkey.png)
@@ -119,7 +117,7 @@ A green message box will notify you that your SSH key was successfully added to 
 Log in at [registry.cilogon.org](https://registry.cilogon.org/registry/) and navigate to the "Authenticators" section of your profile (see [Step 3](#step-3-upload-your-ssh-key-to-registrycilogonorg), above). Click "Delete", then repeat the process for adding a new key. It will take a few minutes before you can log in with your new key.
 
 ## Troubleshooting
-* For Mac users: If you have set up the key and followed all the steps above but are prompted for a **__password__** instead of a **__passphrase__**, you may need to edit or create a config file (~/.ssh/config). If you don't have an ssh config file, you can create it from the terminal window with the command `touch ~/.ssh/config`. After, edit the file and add the following 3 lines before trying again:
+* For Mac users: If you have set up the key and followed all the steps above but are prompted for a **__password__** instead of a **__passphrase__**, you may need to edit or create a config file (`~/.ssh/config`). If you don't have an ssh config file, you can create it from the terminal window with the command `touch ~/.ssh/config`. After, edit the file and add the following 3 lines before trying again:
   ```
   Host login.rc.colorado.edu
   HostKeyAlgorithms ssh-ed25519
