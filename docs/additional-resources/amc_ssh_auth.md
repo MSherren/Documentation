@@ -53,7 +53,7 @@ It is recommended you use Powershell, but command prompt or a basic windows term
 ```
 ssh-keygen -t ed25519
 ```
-After, it is important that you **_create a passphrase_** and note the file path of the generated key. This will be important for step 3. In the example output provided below, we see that the public key has been saved in the path `C:\Users\username/.ssh/id_ed25519.pub`.
+After, it is important that you **_create a passphrase_** and note the file path of the generated key. This will be important for step 3. You can also name the key in the `Enter file ...` step to make it unique, instead of remaining the default `id_ed25519`. In the example output provided below, we see that the public key has been saved in the path `C:\Users\username/.ssh/id_ed25519.pub`.
 
 ```
 Z:\> ssh-keygen -t ed25519
@@ -79,7 +79,7 @@ From a terminal window, execute the following command:
 ```
 ssh-keygen -t ed25519
 ```
-- After, it is important that you **_create a passphrase_** and note the file path of the generated key. This will be important for step 3. Example output:
+- After, it is important that you **_create a passphrase_** and note the file path of the generated key. This will be important for step 3. You can also name the key in the `Enter file ...` step to make it unique, instead of remaining the default `id_ed25519`. Example output:
 
 ```
 username$ ssh-keygen -t ed25519
