@@ -27,28 +27,29 @@ You can move on to Step 2, but please make sure 10 minutes have elapsed between 
 
 ## *Step 2: Generate an ssh key*
 
-You are strongly encouraged to set a passphrase for your key pair. You will be prompted to enter the passphrase each time you log in. You are also strongly encouraged to create an ed25519 key type.
+```{important}
+You are strongly encouraged to set a passphrase for your key pair and generate a Ed25519 key. You will be prompted to enter the passphrase each time you log in.
+```
 
 (tabset-ref-get-account)=
 ``````{tab-set}
 :sync-group: tabset-os-version
 `````{tab-item} Windows
 :sync: os-version-windows
-SSH Key Generation for Windows Users: 
-It is recommended you use Powershell, but command prompt or a basic windows terminal will also work. Once inside Powershell (or similar), execute the following command:
+When generating a key on Windows it is recommended you use Powershell, but the command prompt or a basic Windows terminal will also work. Once inside Powershell (or similar), execute the following command to generate an Ed25519 key:
 ```
 ssh-keygen -t ed25519
 ```
-After, it is important that you **_create a passphrase_** and note the file path of the generated key. This will be important for step 3. You can also name the key in the `Enter file ...` step to make it unique, instead of remaining the default `id_ed25519`. In the example output provided below, we see that the public key has been saved in the path `C:\Users\username/.ssh/id_ed25519.pub`.
+Once the above command is executed, you will be prompted for several items that will help you generate the key. It is recommended that you **_create a passphrase_** and note the file path of the generated key. During key generation, you may also name the key in the `Enter file in which to save the key` portion, instead of using the default `id_ed25519` name. This is often necessary if you have previously generated keys. In the example output provided below, we use the default name and see that the public key has been saved in the path `C:\Users\username\.ssh\id_ed25519.pub`.
 
 ```
 Z:\> ssh-keygen -t ed25519
 Generating public/private ed25519 key pair.
-Enter file in which to save the key (C:\Users\username/.ssh/id_ed25519):
+Enter file in which to save the key (C:\Users\username\.ssh\id_ed25519):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
-Your identification has been saved in C:\Users\username/.ssh/id_ed25519.
-Your public key has been saved in C:\Users\username/.ssh/id_ed25519.pub.
+Your identification has been saved in C:\Users\username\.ssh\id_ed25519.
+Your public key has been saved in C:\Users\username\.ssh\id_ed25519.pub.
 The key fingerprint is :
 SHA256:<key here>
 The key's randomart image is:
@@ -58,19 +59,14 @@ The key's randomart image is:
 +---- [SHA256] -----+
 ```
 
-- Using PuTTY: <https://devops.ionos.com/tutorials/use-ssh-keys-with-putty-on-windows/>
 `````
 `````{tab-item} Mac
 :sync: os-version-mac
-
-SSH Key Generation for Mac and Linux Users: 
-From a terminal window, execute the following command:
+SSH key generation for Mac and Linux users can be completed from a terminal window. In a terminal, execute the following command to generate an Ed25519 key:
 ```
 ssh-keygen -t ed25519
 ```
-- After, it is important that you **_create a passphrase_** and note the file path of the generated key. This will be important for step 3. You can also name the key in the `Enter file ...` step to make it unique, instead of remaining the default `id_ed25519`. Example output:
-
-
+Once the above command is executed, you will be prompted for several items that will help you generate the key. It is recommended that you **_create a passphrase_** and note the file path of the generated key. During key generation, you may also name the key in the `Enter file in which to save the key` portion, instead of using the default `id_ed25519` name. This is often necessary if you have previously generated keys. In the example output provided below, we use the default name and see that the public key has been saved in the path `/Users/username/.ssh/id_ed25519.pub`
 ```
 username$ ssh-keygen -t ed25519
 Generating public/private ed25519 key pair.
@@ -88,8 +84,8 @@ The key's ranomart image is:
 +---- [SHA256] -----+
 ```
 ```{note}
-Note for Mac users: There is a chance you need to create or alter your ssh config file `~/.ssh/config`. See more in the [Troubleshooting](#troubleshooting) section below.
-```
+There is a chance you need to create or alter your ssh config file `~/.ssh/config`. See more in the [Troubleshooting](#troubleshooting) section below.
+``` 
 `````
 ``````
 
@@ -118,7 +114,7 @@ Locate your __public__ key (`<keyname>.pub`) on your local drive, then click "UP
 
 <br>
 
-A green message box will notify you that your SSH key was successfully added to your account.
+A green message box will notify you that your SSH key has been successfully added to your account.
 <br>
 ![](./registry-images/sshkeyadded.png)
 
@@ -127,13 +123,17 @@ A green message box will notify you that your SSH key was successfully added to 
 Log in at [registry.cilogon.org](https://registry.cilogon.org/registry/) and navigate to the "Authenticators" section of your profile (see [Step 3](#step-3-upload-your-ssh-key-to-registrycilogonorg), above). Click "Delete", then repeat the process for adding a new key. It will take a few minutes before you can log in with your new key.
 
 ## Troubleshooting
-* For Mac users: If you have set up the key and followed all the steps above but are prompted for a **__password__** instead of a **__passphrase__**, you may need to edit or create a config file (`~/.ssh/config`). If you don't have an ssh config file, you can create it from the terminal window with the command `touch ~/.ssh/config`. After, edit the file and add the following 3 lines before trying again:
+
+* If you are able to get through [Step 3](#step-3-upload-your-ssh-key-to-registrycilogonorg) but unable to access CURC resources from your terminal, check that the key in your command is the same key you uploaded to the registry.
+* If you are prompted for a **__passphrase__** (not a password), this refers to the passphrase you set when you generated your key. If you don't remember it then you will have to generate and upload a new key to the registry. 
+* **For Mac users:** If you have set up the key and followed all the steps above but are prompted for a **__password__** instead of a **__passphrase__**, you may need to edit or create a config file (`~/.ssh/config`). If you don't have an ssh config file, you can create it from the terminal window with the command `touch ~/.ssh/config`. After, edit the file and add the following 3 lines before trying again:
   ```
   Host login.rc.colorado.edu
   HostKeyAlgorithms ssh-ed25519
   PubkeyAcceptedAlgorithms ssh-ed25519
   ```
-* If you receive an error message indicating that you are not in the COmanage registry (see screenshot below), please submit a [support request form](https://colorado.service-now.com/req_portal?id=ucb_sc_rc_form). 
+* If you are prompted for a **__password__** please submit a [support request form](https://colorado.service-now.com/req_portal?id=ucb_sc_rc_form), as this indicates an issue with your CILogon enrollment. Please include a screenshot of the error message and the date/time of your last login attempt. **Mac users should first attempt the solution provided in the bullet point above.**
+* If you receive an error message indicating that you are not in the COmanage registry (see screenshot below), please submit a [support request form](https://colorado.service-now.com/req_portal?id=ucb_sc_rc_form).
 
 ![](./registry-images/notregistered_error.png)
 <br>
